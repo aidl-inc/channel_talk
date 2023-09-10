@@ -18,21 +18,6 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   String content = '';
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
   void showSnackBar(String message) => ScaffoldMessenger.of(context)
       .showSnackBar(SnackBar(content: Text(message)));
 
