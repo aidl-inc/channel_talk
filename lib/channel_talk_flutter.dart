@@ -391,4 +391,10 @@ class ChannelTalk {
       'flag': flag,
     });
   }
+
+  /// TODO: Implement "setAppearance" method
+  /// https://developers.channel.io/docs/ios-channelio#setappearance
+  /// https://developers.channel.io/docs/android-channelio#setappearance
+  ///
+  /// static Future<bool?> setAppearance({}) {}
 }
