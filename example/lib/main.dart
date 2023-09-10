@@ -208,7 +208,6 @@ class MyAppState extends State<MyApp> {
                         chatId: args['chatId'],
                         message: args['message'],
                       );
-
                       showSnackBar('Result: $result');
                     } on PlatformException catch (error) {
                       showSnackBar('PlatformException: ${error.message}');
@@ -317,83 +316,74 @@ class MyAppState extends State<MyApp> {
             },
             child: const Text('initPushToken'),
           ),
-          const ElevatedButton(
-            onPressed: null,
-//                 () async {
-//                   content = '''
-// { "content": ""}
-//                   ''';
-//                   showInputDialog(title:
-//                     'isChannelPushNotification payload',
-//                     () async {
-//                       Map args = json.decode(content);
-//                       try {
-//                         final result =
-//                             await ChannelTalk.isChannelPushNotification(
-//                                 content: args);
-//
-//                         showMessageToast('Result: $result');
-//                       } on PlatformException catch (error) {
-//                         showMessageToast('PlatformException: ${error.message}');
-//                       } catch (err) {
-//                         showMessageToast(err.toString());
-//                       }
-//                     },
-//                   );
-//                 },
-            child: Text('isChannelPushNotification'),
+          ElevatedButton(
+            onPressed: () async {
+              content = '''
+{ "content": ""}
+                  ''';
+              showInputDialog(
+                title: 'isChannelPushNotification payload',
+                onOk: () async {
+                  Map<String, dynamic> args = json.decode(content);
+                  try {
+                    final result = await ChannelTalk.isChannelPushNotification(
+                        content: args);
+                    showSnackBar('Result: $result');
+                  } on PlatformException catch (error) {
+                    showSnackBar('PlatformException: ${error.message}');
+                  } catch (err) {
+                    showSnackBar(err.toString());
+                  }
+                },
+              );
+            },
+            child: const Text('isChannelPushNotification'),
           ),
-          const ElevatedButton(
-            onPressed: null,
-//              () async {
-//                   content = '''
-// { "content": ""}
-//                   ''';
-//                   showInputDialog(title:
-//                     'receivePushNotification payload',
-//                     () async {
-//                       Map args = json.decode(content);
-//                       try {
-//                         final result =
-//                             await ChannelTalk.receivePushNotification(
-//                                 content: args);
-//
-//                         showMessageToast('Result: $result');
-//                       } on PlatformException catch (error) {
-//                         showMessageToast('PlatformException: ${error.message}');
-//                       } catch (err) {
-//                         showMessageToast(err.toString());
-//                       }
-//                     },
-//                   );
-//                 },
-            child: Text('receivePushNotification'),
+          ElevatedButton(
+            onPressed: () async {
+              content = '''
+{ "content": ""}
+                  ''';
+              showInputDialog(
+                title: 'receivePushNotification payload',
+                onOk: () async {
+                  Map<String, dynamic> args = json.decode(content);
+                  try {
+                    final result = await ChannelTalk.receivePushNotification(
+                        content: args);
+                    showSnackBar('Result: $result');
+                  } on PlatformException catch (error) {
+                    showSnackBar('PlatformException: ${error.message}');
+                  } catch (err) {
+                    showSnackBar(err.toString());
+                  }
+                },
+              );
+            },
+            child: const Text('receivePushNotification'),
           ),
-          const ElevatedButton(
-            onPressed: null,
-//              () async {
-//                   content = '''
-// { "content": ""}
-//                   ''';
-//                   showInputDialog(title:
-//                     'receivePushNotification payload',
-//                     () async {
-//                       Map args = json.decode(content);
-//                       try {
-//                         final result =
-//                             await ChannelTalk.storePushNotification(
-//                                 content: args);
-//
-//                         showMessageToast('Result: $result');
-//                       } on PlatformException catch (error) {
-//                         showMessageToast('PlatformException: ${error.message}');
-//                       } catch (err) {
-//                         showMessageToast(err.toString());
-//                       }
-//                     },
-//                   );
-//                 },
-            child: Text('storePushNotification'),
+          ElevatedButton(
+            onPressed: () async {
+              content = '''
+{ "content": ""}
+                  ''';
+              showInputDialog(
+                title: 'receivePushNotification payload',
+                onOk: () async {
+                  Map<String, dynamic> args = json.decode(content);
+                  try {
+                    final result =
+                        await ChannelTalk.storePushNotification(content: args);
+                    showSnackBar('Result: $result');
+                  } on PlatformException catch (error) {
+                    showSnackBar('PlatformException: ${error.message}');
+                  } catch (err) {
+                    showSnackBar(err.toString());
+                  }
+                },
+              );
+            },
+            child: const Text('storePushNotification'),
           ),
           ElevatedButton(
             onPressed: () async {
