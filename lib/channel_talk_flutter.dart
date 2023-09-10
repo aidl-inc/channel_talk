@@ -243,6 +243,18 @@ class ChannelTalk {
     });
   }
 
+  /// TODO: Implement "addTags" method
+  /// https://developers.channel.io/docs/ios-channelio#addtags
+  /// https://developers.channel.io/docs/android-channelio#addtags
+  ///
+  /// static Future<bool?> addTags({}) {}
+
+  ///　TODO: Implement "removeTags" method
+  /// https://developers.channel.io/docs/ios-channelio#removetags
+  /// https://developers.channel.io/docs/android-channelio#removetags
+  ///
+  /// static Future<bool?> removeTags({}) {}
+
   /// > iOS
   ///
   /// Notifies the change of the device token to Channel.
