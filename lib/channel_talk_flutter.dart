@@ -10,6 +10,12 @@ class ChannelTalk {
     return version;
   }
 
+  /// Boot is a preparation step that loads necessary information to run SDK,
+  /// such as user and channel data. Also, you can make detailed settings by setting the boot configuration.
+  /// Real-time chats, marketing, and event tracking features can be used after boot.
+  ///
+  /// iOS: https://developers.channel.io/docs/ios-channelio#boot
+  /// Android: https://developers.channel.io/docs/android-channelio#boot
   static Future<bool?> boot({
     required String pluginKey,
     String? memberHash,
@@ -53,18 +59,37 @@ class ChannelTalk {
     return _channel.invokeMethod('boot', config);
   }
 
+  /// Only the system push notification and event tracking via [track] will be available after sleep.
+  /// Real-time chat and marketing popups will not be shown.
+  ///
+  /// iOS: https://developers.channel.io/docs/ios-channelio#sleep
+  /// Android: https://developers.channel.io/docs/android-channelio#sleep
   static Future<bool?> sleep() {
     return _channel.invokeMethod('sleep');
   }
 
+  /// Terminate connection between SDK and Channel.
+  /// shutdown will discontinue features of the SDK will be discontinued.
+  /// See About [life cycle](https://developers.channel.io/docs/mobile-about-life-cycle) for more information.
+  ///
+  /// iOS: https://developers.channel.io/docs/ios-channelio#shutdown
+  /// Android: https://developers.channel.io/docs/android-channelio#shutdown
   static Future<bool?> shutdown() {
     return _channel.invokeMethod('shutdown');
   }
 
+  /// Displays Channel button on the global screen.
+  ///
+  /// iOS: https://developers.channel.io/docs/ios-channelio#showchannelbutton
+  /// Android: https://developers.channel.io/docs/android-channelio#showchannelbutton
   static Future<bool?> showChannelButton() {
     return _channel.invokeMethod('showChannelButton');
   }
 
+  /// Hide Channel button on the global screen.
+  ///
+  /// iOS: https://developers.channel.io/docs/ios-channelio#hidechannelbutton
+  /// Android: https://developers.channel.io/docs/android-channelio#hidechannelbutton
   static Future<bool?> hideChannelButton() {
     return _channel.invokeMethod('hideChannelButton');
   }
