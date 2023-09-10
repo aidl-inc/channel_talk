@@ -173,6 +173,52 @@ class ChannelTalk {
     );
   }
 
+  /// > iOS
+  ///
+  /// Sets the name of the screen when track is calling.
+  /// If you call track before setPage, it will not be reflected in the event.
+  ///
+  /// https://developers.channel.io/docs/ios-channelio#setpage
+  ///
+  /// > Android
+  ///
+  /// Sets a page to show when an event is [track]ed.
+  /// The default page name is an Activity name.
+  /// However in some cases where the default page does not fit your use case,
+  /// for example if you are using Single Activity Architecture with Navigation Component,
+  /// you might want to set the page to provide helpful information.
+  ///
+  /// Note that the page takes effect for events sent after the setPage call.
+  /// All events before the setPage call will remain intact.
+  ///
+  /// [!] The behavior of the [setPage] (null) and [resetPage] () is different.
+  /// [setPage] (null) literally sets page as null.
+  ///
+  /// https://developers.channel.io/docs/android-channelio#setpage
+  static Future<bool?> setPage({required page}) {
+    return _channel.invokeMethod('setPage', {
+      'page': page,
+    });
+  }
+
+  /// > iOS
+  ///
+  /// Resets the name of the screen when track is called.
+  /// The default value is the name of the ViewController calling the track.
+  ///
+  /// https://developers.channel.io/docs/ios-channelio#resetpage
+  ///
+  /// > Android
+  ///
+  /// Unset a page name set by [setPage].
+  /// All page in events sent onwards will be recorded as an Activity name,
+  /// which is a default page value.
+  ///
+  /// https://developers.channel.io/docs/android-channelio#resetpage
+  static Future<bool?> resetPage() {
+    return _channel.invokeMethod('resetPage');
+  }
+
   /// Updates user information.
   ///
   /// iOS: https://developers.channel.io/docs/ios-channelio#updateuser
@@ -332,51 +378,5 @@ class ChannelTalk {
     return _channel.invokeMethod('setDebugMode', {
       'flag': flag,
     });
-  }
-
-  /// > iOS
-  ///
-  /// Sets the name of the screen when track is calling.
-  /// If you call track before setPage, it will not be reflected in the event.
-  ///
-  /// https://developers.channel.io/docs/ios-channelio#setpage
-  ///
-  /// > Android
-  ///
-  /// Sets a page to show when an event is [track]ed.
-  /// The default page name is an Activity name.
-  /// However in some cases where the default page does not fit your use case,
-  /// for example if you are using Single Activity Architecture with Navigation Component,
-  /// you might want to set the page to provide helpful information.
-  ///
-  /// Note that the page takes effect for events sent after the setPage call.
-  /// All events before the setPage call will remain intact.
-  ///
-  /// [!] The behavior of the [setPage] (null) and [resetPage] () is different.
-  /// [setPage] (null) literally sets page as null.
-  ///
-  /// https://developers.channel.io/docs/android-channelio#setpage
-  static Future<bool?> setPage({required page}) {
-    return _channel.invokeMethod('setPage', {
-      'page': page,
-    });
-  }
-
-  /// > iOS
-  ///
-  /// Resets the name of the screen when track is called.
-  /// The default value is the name of the ViewController calling the track.
-  ///
-  /// https://developers.channel.io/docs/ios-channelio#resetpage
-  ///
-  /// > Android
-  ///
-  /// Unset a page name set by [setPage].
-  /// All page in events sent onwards will be recorded as an Activity name,
-  /// which is a default page value.
-  ///
-  /// https://developers.channel.io/docs/android-channelio#resetpage
-  static Future<bool?> resetPage() {
-    return _channel.invokeMethod('resetPage');
   }
 }
